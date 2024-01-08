@@ -19,4 +19,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return appointmentRepo.findAll();
 	}
 
+	@Override
+	public Appointment getAppointmentById(int appId) {
+		return appointmentRepo.findById(appId);
+	}
+
 }
