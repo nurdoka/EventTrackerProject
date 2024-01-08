@@ -8,4 +8,5 @@ public interface AppointmentService {
 
 	List<Appointment> getAllAppointments();
 	Appointment getAppointmentById(int appId);
+	Appointment createAppointment(Appointment app);
 }

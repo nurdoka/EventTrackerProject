@@ -41,3 +41,13 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'appointment'@'local
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `appointment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `appointmentdb`;
+INSERT INTO `appointment` (`id`, `patient_name`, `doctor_name`, `arrival_time`, `departure_time`, `diagnose`, `prescription`) VALUES (1, 'John Doe', 'James Smith', NULL, NULL, 'dermitatis', 'ibuprofen');
+
+COMMIT;
+
