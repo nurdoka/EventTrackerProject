@@ -38,4 +38,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return appointmentRepo.save(appo);
 	}
 
+	@Override
+	public boolean deleteAppointmentById(int appoId) {
+		boolean isDeleted = false;
+		if (appointmentRepo.existsById(appoId)) {
+			appointmentRepo.deleteById(appoId);
+			isDeleted = true;
+		}
+		return isDeleted;
+	}
+
 }

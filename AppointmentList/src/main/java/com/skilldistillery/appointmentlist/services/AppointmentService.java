@@ -10,4 +10,5 @@ public interface AppointmentService {
 	Appointment getAppointmentById(int appId);
 	Appointment createAppointment(Appointment app);
 	Appointment updateAppointmentById(Appointment appo,int appoId);
+	boolean deleteAppointmentById(int appoId);
 }
