@@ -8,22 +8,22 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.appointmentlist.entities.Message;
+import com.skilldistillery.appointmentlist.entities.Appointment;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import net.bytebuddy.matcher.ElementMatcher;
 
-class MessageTest {
+class AppointmentTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Message message;
+	private Appointment appointment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("JPAMessageList");
+		emf = Persistence.createEntityManagerFactory("JPAAppointmentList");
 	}
 
 	@AfterAll
@@ -34,19 +34,19 @@ class MessageTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		message = em.find(Message.class, 1);
+		appointment = em.find(Appointment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		message = null;
+		appointment = null;
 	}
 
 	@Test
 	void test_Message_entity_mapping() {
-		assertNotNull(message);
-		assertEquals("Hello", message.getContent());
+		assertNotNull(appointment);
+		assertEquals("ibuprofen", appointment.getPrescription());
 	}
 
 }

@@ -1,13 +1,13 @@
-package com.skilldistillery.messagelist;
+package com.skilldistillery.appointmentlist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MessageListApplication {
+public class AppointmentListApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MessageListApplication.class, args);
+		SpringApplication.run(AppointmentListApplication.class, args);
 	}
 
 }

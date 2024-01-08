@@ -1,0 +1,10 @@
+package com.skilldistillery.appointmentlist.services;
+
+import java.util.List;
+
+import com.skilldistillery.appointmentlist.entities.Appointment;
+
+public interface AppointmentService {
+
+	List<Appointment> getAllAppointments();
+}
