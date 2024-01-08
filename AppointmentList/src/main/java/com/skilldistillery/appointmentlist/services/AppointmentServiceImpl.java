@@ -28,5 +28,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 	public Appointment createAppointment(Appointment app) {
 		return appointmentRepo.save(app);
 	}
+	
+	@Override
+	public Appointment updateAppointmentById(Appointment appo,int appoId) {
+		Appointment tempApp = appointmentRepo.findById(appoId);
+		if (tempApp!=null) {
+			appo.setId(appoId);	
+		}
+		return appointmentRepo.save(appo);
+	}
 
 }

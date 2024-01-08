@@ -9,4 +9,5 @@ public interface AppointmentService {
 	List<Appointment> getAllAppointments();
 	Appointment getAppointmentById(int appId);
 	Appointment createAppointment(Appointment app);
+	Appointment updateAppointmentById(Appointment appo,int appoId);
 }
