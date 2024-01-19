@@ -54,6 +54,7 @@
   <p>{{selected.prescription}}</p>
   <button class="btn btn-warning" (click)="setEditAppo()" >Edit</button>
   <button class="btn btn-info" (click)="selected=null" >Back</button>
+  <button class="btn btn-danger" (click)="deleteAppointment(selected.id)" >Delete</button>
 </div>
 
 <div *ngIf="editAppo">

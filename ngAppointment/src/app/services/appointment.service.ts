@@ -47,4 +47,15 @@ export class AppointmentService {
     );
   }
 
+  destroy(id: number): Observable<Appointment>{
+    return this.http.delete<Appointment>(this.url +'/' + id).pipe(
+      catchError((err:any) => {
+        console.error(err);
+        return throwError(
+          () => new Error('AppointmentService.delete(): error deleting Appointment: ' + err)
+        );
+      })
+    );
+  }
+
 }

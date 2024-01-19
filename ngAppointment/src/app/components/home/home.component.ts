@@ -73,4 +73,13 @@ export class HomeComponent implements OnInit {
     this.newAppo = new Appointment();
   }
 
+  deleteAppointment(id:number):void{
+    this.appointmentService.destroy(id).subscribe({
+      next: (result) => {
+        this.selected = null;
+        this.loadAppointments();
+      }
+    });
+  }
+
 }
