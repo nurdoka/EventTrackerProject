@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit {
     this.appointmentService.create(appo).subscribe({
       next: (result) => {
         this.newAppo = new Appointment();
+        this.newAppo = null;
         this.loadAppointments();
       },
       error: (problem) =>{
@@ -67,6 +68,9 @@ export class HomeComponent implements OnInit {
         console.error(problem);
       }
     });
+  }
+  assignNewAppo():void{
+    this.newAppo = new Appointment();
   }
 
 }

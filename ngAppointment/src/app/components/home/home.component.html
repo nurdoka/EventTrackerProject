@@ -1,28 +1,48 @@
 <h1><span class="badge bg-primary text-center"> Appointment List </span></h1>
 
 <div *ngIf="!selected">
-<table class="table table-bordered table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th>Patient's Name</th>
-      <th>Doctor's Name</th>
-      <th>Arrival Time</th>
-      <th>Departure Time</th>
-      <th>Diagnose</th>
-      <th>Prescription</th>
-    </tr>
-  </thead>
-  <tbody >
-    <tr (click)="selected=appo" *ngFor="let appo of appointments">
-      <td>{{appo.patientName}}</td>
-      <td>{{appo.doctorName}}</td>
-      <td>{{appo.arrivalTime}}</td>
-      <td>{{appo.departureTime}}</td>
-      <td>{{appo.diagnose}}</td>
-      <td>{{appo.prescription}}</td>
-    </tr>
-  </tbody>
-</table>
+  <form class="form-group" *ngIf="newAppo">
+    <label class="form-label" for="patientName">Patient's Name</label>
+    <input class="form-control" [(ngModel)]="newAppo.patientName" type="text" name="patientName" /><br>
+    <label class="form-label" for="doctorName">Doctor's Name</label>
+    <input class="form-control" [(ngModel)]="newAppo.doctorName" type="text" name="doctorName" /><br>
+    <label class="form-label" for="arrivalTime">Arrival Time</label>
+    <input class="form-control" [(ngModel)]="newAppo.arrivalTime" type="datetime" name="arrivalTime" /><br>
+    <label class="form-label" for="departureTime">Departure Time</label>
+    <input class="form-control" [(ngModel)]="newAppo.departureTime" type="datetime" name="departureTime" /><br>
+    <label class="form-label" for="diagnose">Diagnose</label>
+    <input class="form-control" [(ngModel)]="newAppo.diagnose" type="text" name="diagnose" /><br>
+    <label class="form-label" for="prescription">Prescription</label>
+    <input class="form-control" [(ngModel)]="newAppo.prescription" type="text" name="prescription" /><br>
+    <button (click)="addAppointment(newAppo)" >Add</button>
+    <button (click)="newAppo=null" >Cancel</button>
+  </form>
+
+  <div *ngIf="!newAppo" >
+  <button class="btn btn-secondary" (click)="assignNewAppo()" >Add New Appointment</button>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Patient's Name</th>
+        <th>Doctor's Name</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Diagnose</th>
+        <th>Prescription</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr (click)="selected=appo" *ngFor="let appo of appointments">
+        <td>{{appo.patientName}}</td>
+        <td>{{appo.doctorName}}</td>
+        <td>{{appo.arrivalTime}}</td>
+        <td>{{appo.departureTime}}</td>
+        <td>{{appo.diagnose}}</td>
+        <td>{{appo.prescription}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </div>
 
 <div *ngIf="selected && !editAppo">
@@ -33,7 +53,7 @@
   <p>{{selected.diagnose}}</p>
   <p>{{selected.prescription}}</p>
   <button class="btn btn-warning" (click)="setEditAppo()" >Edit</button>
-  <button class="btn btn-light" (click)="selected=null" >Back</button>
+  <button class="btn btn-info" (click)="selected=null" >Back</button>
 </div>
 
 <div *ngIf="editAppo">
