@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   appointments: Appointment[] = [];
+  selected: Appointment | null = null;
+  editAppo: Appointment | null = null;
+  newAppo: Appointment | null = null;
 
   constructor(
     private appointmentService:AppointmentService
@@ -40,5 +43,30 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  updateAppointment(appo:Appointment):void{
+    this.appointmentService.update(appo).subscribe({
+      next: (result) => {
+        this.loadAppointments();
+        this.selected = this.editAppo;
+        this.editAppo = null;
+      }
+    });
+  }
+  setEditAppo(){
+    this.editAppo = Object.assign({}, this.selected);
+  }
+
+  addAppointment(appo:Appointment):void{
+    this.appointmentService.create(appo).subscribe({
+      next: (result) => {
+        this.newAppo = new Appointment();
+        this.loadAppointments();
+      },
+      error: (problem) =>{
+        console.error('AppointmentComponent.addTodo(): error creating Appointment');
+        console.error(problem);
+      }
+    });
+  }
 
 }

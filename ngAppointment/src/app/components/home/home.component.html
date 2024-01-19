@@ -1,5 +1,6 @@
 <h1><span class="badge bg-primary text-center"> Appointment List </span></h1>
 
+<div *ngIf="!selected">
 <table class="table table-bordered table-hover">
   <thead class="table-dark">
     <tr>
@@ -12,13 +13,34 @@
     </tr>
   </thead>
   <tbody >
-    <tr *ngFor="let appo of appointments">
-      <td >{{appo.patientName}}</td>
+    <tr (click)="selected=appo" *ngFor="let appo of appointments">
+      <td>{{appo.patientName}}</td>
       <td>{{appo.doctorName}}</td>
-      <td >{{appo.arrivalTime}}</td>
+      <td>{{appo.arrivalTime}}</td>
       <td>{{appo.departureTime}}</td>
       <td>{{appo.diagnose}}</td>
       <td>{{appo.prescription}}</td>
     </tr>
   </tbody>
 </table>
+</div>
+
+<div *ngIf="selected && !editAppo">
+  <p>{{selected.patientName}}</p>
+  <p>{{selected.doctorName}}</p>
+  <p>{{selected.arrivalTime}}</p>
+  <p>{{selected.departureTime}}</p>
+  <p>{{selected.diagnose}}</p>
+  <p>{{selected.prescription}}</p>
+  <button class="btn btn-warning" (click)="setEditAppo()" >Edit</button>
+  <button class="btn btn-light" (click)="selected=null" >Back</button>
+</div>
+
+<div *ngIf="editAppo">
+  <form class="form-group">
+    <label class="form-label" for="patientName">Patient's name: </label>
+    <input class="form-control" [(ngModel)]="editAppo.patientName" type="text" name="patientName"/><br>
+    <button class="btn btn-danger" (click)="editAppo=null">Cancel</button>
+    <button class="btn btn-success" (click)="updateAppointment(editAppo)">Save</button>
+  </form>
+</div>

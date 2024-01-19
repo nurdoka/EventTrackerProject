@@ -25,4 +25,26 @@ export class AppointmentService {
     );
   }
 
+  update(appo: Appointment): Observable<Appointment>{
+    return this.http.put<Appointment>(this.url + '/' + appo.id, appo).pipe(
+      catchError((err:any) => {
+        console.error(err);
+        return throwError(
+          () => new Error('AppointmentService.update(): error updating Appointment: ' + err)
+        )
+      })
+    );
+  }
+
+  create(appo: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(this.url,appo).pipe(
+      catchError((err: any) => {
+        console.error(err);
+        return throwError(
+          () => new Error( 'AppointmentService.create(): error creating Appointment: ' + err)
+        );
+      })
+    );
+  }
+
 }
