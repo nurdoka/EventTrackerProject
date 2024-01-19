@@ -1,0 +1,24 @@
+<h1><span class="badge bg-primary text-center"> Appointment List </span></h1>
+
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Patient's Name</th>
+      <th>Doctor's Name</th>
+      <th>Arrival Time</th>
+      <th>Departure Time</th>
+      <th>Diagnose</th>
+      <th>Prescription</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let appo of appointments">
+      <td >{{appo.patientName}}</td>
+      <td>{{appo.doctorName}}</td>
+      <td >{{appo.arrivalTime}}</td>
+      <td>{{appo.departureTime}}</td>
+      <td>{{appo.diagnose}}</td>
+      <td>{{appo.prescription}}</td>
+    </tr>
+  </tbody>
+</table>
