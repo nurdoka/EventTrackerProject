@@ -47,7 +47,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `appointmentdb`;
-INSERT INTO `appointment` (`id`, `patient_name`, `doctor_name`, `arrival_time`, `departure_time`, `diagnose`, `prescription`) VALUES (1, 'John Doe', 'James Smith', NULL, NULL, 'dermitatis', 'ibuprofen');
+INSERT INTO `appointment` (`id`, `patient_name`, `doctor_name`, `arrival_time`, `departure_time`, `diagnose`, `prescription`) VALUES (1, 'John Doe', 'James Smith', '2023-01-15 10:30', '2023-01-15 11:30', 'dermatitis', 'ibuprofen');
 
 COMMIT;
 

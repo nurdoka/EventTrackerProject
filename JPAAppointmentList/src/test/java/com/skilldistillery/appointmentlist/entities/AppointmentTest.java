@@ -44,9 +44,15 @@ class AppointmentTest {
 	}
 
 	@Test
-	void test_Message_entity_mapping() {
+	void test_appointment_entity_mapping() {
 		assertNotNull(appointment);
 		assertEquals("ibuprofen", appointment.getPrescription());
+		assertEquals("2023-01-15 10:30:00", appointment.getArrivalTime());
+	}
+	
+	@Test
+	void test_appointment_departure_time_mapping() {
+		assertEquals("2023-01-15 11:30:00", appointment.getDepartureTime());
 	}
 
 }

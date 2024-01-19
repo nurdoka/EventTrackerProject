@@ -26,7 +26,7 @@ public class Appointment {
 	private LocalDateTime arrivalTime;
 	
 	@Column(name = "departure_time")
-	private String departureTime;
+	private LocalDateTime departureTime;
 	
 	private String diagnose;
 	
@@ -66,11 +66,11 @@ public class Appointment {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public String getDepartureTime() {
+	public LocalDateTime getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(String departureTime) {
+	public void setDepartureTime(LocalDateTime departureTime) {
 		this.departureTime = departureTime;
 	}
 

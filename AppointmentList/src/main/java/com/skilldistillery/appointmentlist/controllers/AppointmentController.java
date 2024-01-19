@@ -43,7 +43,7 @@ public class AppointmentController {
 	public Appointment updateAppointment(@RequestBody Appointment appo, @PathVariable("appoId") int appoId) {
 		return appointmentService.updateAppointmentById(appo, appoId);
 	}
-	
+
 	@DeleteMapping("appointments/{appoId}")
 	public void deleteAppointment(@PathVariable("appoId") int appoId,HttpServletResponse response) {
 		try {
