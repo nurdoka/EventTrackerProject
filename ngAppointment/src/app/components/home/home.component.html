@@ -61,6 +61,16 @@
   <form class="form-group">
     <label class="form-label" for="patientName">Patient's name: </label>
     <input class="form-control" [(ngModel)]="editAppo.patientName" type="text" name="patientName"/><br>
+    <label class="form-label" for="doctorName">Doctor's Name</label>
+    <input class="form-control" [(ngModel)]="editAppo.doctorName" type="text" name="doctorName" /><br>
+    <label class="form-label" for="arrivalTime">Arrival Time</label>
+    <input class="form-control" [(ngModel)]="editAppo.arrivalTime" type="datetime" name="arrivalTime" /><br>
+    <label class="form-label" for="departureTime">Departure Time</label>
+    <input class="form-control" [(ngModel)]="editAppo.departureTime" type="datetime" name="departureTime" /><br>
+    <label class="form-label" for="diagnose">Diagnose</label>
+    <input class="form-control" [(ngModel)]="editAppo.diagnose" type="text" name="diagnose" /><br>
+    <label class="form-label" for="prescription">Prescription</label>
+    <input class="form-control" [(ngModel)]="editAppo.prescription" type="text" name="prescription" /><br>
     <button class="btn btn-danger" (click)="editAppo=null">Cancel</button>
     <button class="btn btn-success" (click)="updateAppointment(editAppo)">Save</button>
   </form>
